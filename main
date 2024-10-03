@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите нечетное число: ");
+        int clockHighth = scanner.nextInt();
+        if (clockHighth % 2 == 0) {
+            System.out.print("Нужно нечетное число!");
+            return;
+        }
+        System.out.print("Введите символ: ");
+        String clockSymbol = scanner.next();
+        if (clockSymbol.length() > 1) {
+            System.out.print("Нужен только один символ!");
+        }
+        String empty = " ";
+        for (int i = 0; i < clockHighth*2; i += 2) {
+            if ((clockHighth - i) > 0) {
+                System.out.println(empty.repeat(i / 2 ) + clockSymbol.repeat(clockHighth - i));
+            } else {
+                System.out.println(empty.repeat((clockHighth*2 - i -1)/2) + clockSymbol.repeat(i - clockHighth + 2));
+            }
+        }
+    }
+}
